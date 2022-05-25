@@ -2,8 +2,8 @@ import pizza from "./Images/pizza.jpg";
 import burger from "./Images/burger.jpg";
 import pasta from "./Images/pasta.jpg";
 import sandwich from "./Images/sandwich.jpg";
-import alooparatha from "./Images/alooparatha.jpg";
-import orioshake from "./Images/orioshake.jpg";
+import cake from "./Images/cake.jpg";
+import coffee from "./Images/coffee.jpg";
 
 
 export const Data=[
@@ -28,13 +28,44 @@ export const Data=[
     price: 250,
 },
 {
-    name:"alooparatha",
-    image: alooparatha,
+    name:"Cake",
+    image: cake,
     price: 250,
 },
 {
-    name:"orioshake",
-    image: orioshake,
+    name:"coffee",
+    image: coffee,
     price: 250,
 },
+{
+    name:"burger",
+    image: burger,
+    price: 250,
+},
+{
+    name:"burger",
+    image: burger,
+    price: 250,
+},
+{
+    name:"burger",
+    image: burger,
+    price: 250,
+},
+{
+    name:"burger",
+    image: burger,
+    price: 250,
+},
+{
+    name:"burger",
+    image: burger,
+    price: 250,
+},
+{
+    name:"burger",
+    image: burger,
+    price: 250,
+},
+
 ]
