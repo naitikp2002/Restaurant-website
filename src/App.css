@@ -43,10 +43,10 @@ body{
   font-size: 30px;
 }
 .menuList{
-  width:70vw;
+  width:90vw;
   height:100%;
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   place-items: center;
 }
 /* .menuItems{
