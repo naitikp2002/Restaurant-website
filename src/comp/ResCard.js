@@ -16,11 +16,12 @@ export default function ProductCard({ ResData }) {
     cloudinaryImageId,
     locality,
     areaName,
+    avgRatingString,
     costForTwo,
     cuisines,
   } = ResData.info;
   return (
-    <Card sx={{marginY: 5, width: 280, maxWidth: "100%", boxShadow: "lg" }}>
+    <Card sx={{ marginY: 5, width: 280, maxWidth: "100%", boxShadow: "lg" }}>
       <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}>
           <img
@@ -53,17 +54,28 @@ export default function ProductCard({ ResData }) {
           variant="soft"
           color="success"
           sx={{
-            height: 'auto',
-            '& .MuiChip-label': {
-              display: 'block',
-              whiteSpace: 'normal',
+            height: "auto",
+            "& .MuiChip-label": {
+              display: "block",
+              whiteSpace: "normal",
             },
           }}
         >
           {cuisines.join(", ")}
         </Chip>
 
-        <Typography level="title-lg" sx={{ mt: 1, fontWeight: "xl" }}>
+        <Typography
+          level="title-lg"
+          sx={{ mt: 1, fontWeight: "xl" }}
+          endDecorator={
+            <Chip
+              component="span"
+              size="md"
+              variant="soft"
+              color="primary"
+            > {avgRatingString}</Chip>
+          }
+        >
           {costForTwo}
         </Typography>
         <Typography level="body-sm">
