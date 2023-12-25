@@ -55,14 +55,24 @@ function Menu() {
       },
     },
   ]);
-  const [Restaurants, setRestaurants]= useState([])
+  const [Restaurants, setRestaurants] = useState([]);
   return (
     <div className="menu">
+      <div className="menuList">
+        {Restaurants.map((res) => (
+          <ProductCard key={res.info.id} ResData={res} />
+        ))}
+        </div>
       <Button
         sx={{ marginTop: 5, backgroundColor: "#3f51b5" }}
         variant="contained"
-        onClick={()=> {setRestaurants(ListOfRestaurants.filter((res)=> res.info.avgRating >= 4));
-        console.log(Restaurants)}}
+        onClick={() => {
+          Restaurants.length===0 ?
+          setRestaurants(
+            ListOfRestaurants.filter((res) => res.info.avgRating >= 4)
+          ): setRestaurants([]);
+          console.log(Restaurants);
+        }}
         // disableElevation
       >
         Click for Top Restaurents
@@ -70,21 +80,10 @@ function Menu() {
       {/* {Restaurants.map((res) => (
           <ProductCard key={res.info.id} ResData={res} />
         ))} */}
-      <div className="menuList">
       
-        {ResData.map((res) => (
-          <ProductCard key={res.info.id} ResData={res} />
-        ))}
-        {/* {Data.map((items, key) => {
-          return (
-            <ActionAreaCard
-              key={key}
-              image={items.image}
-              name={items.name}
-              price={items.price}
-            />
-          );
-        })} */}
+        <div className="menuList">
+        {Restaurants &&
+          ResData.map((res) => <ProductCard key={res.info.id} ResData={res} />)}
       </div>
     </div>
   );

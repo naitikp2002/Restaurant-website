@@ -21,7 +21,7 @@ export default function ProductCard({ ResData }) {
     cuisines,
   } = ResData.info;
   return (
-    <Card sx={{ marginY: 5, width: 280, maxWidth: "100%", boxShadow: "lg" }}>
+    <Card sx={{ marginTop: 5, width: 280, maxWidth: "100%", boxShadow: "lg" }}>
       <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}>
           <img
@@ -29,7 +29,10 @@ export default function ProductCard({ ResData }) {
               "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
               cloudinaryImageId
             }
-            srcSet="https://images.unsplash.com/photo-1593121925328-369cc8459c08?auto=format&fit=crop&w=286&dpr=2 2x"
+            srcSet={
+              "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+              cloudinaryImageId
+            }
             loading="lazy"
             alt=""
           />
@@ -68,12 +71,10 @@ export default function ProductCard({ ResData }) {
           level="title-lg"
           sx={{ mt: 1, fontWeight: "xl" }}
           endDecorator={
-            <Chip
-              component="span"
-              size="md"
-              variant="soft"
-              color="primary"
-            > {avgRatingString}</Chip>
+            <Chip component="span" size="md" variant="soft" color="primary">
+              {" "}
+              {avgRatingString}
+            </Chip>
           }
         >
           {costForTwo}
