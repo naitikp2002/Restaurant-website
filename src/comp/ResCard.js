@@ -21,7 +21,7 @@ export default function ProductCard({ ResData }) {
     cuisines,
   } = ResData.info;
   return (
-    <Card sx={{ marginTop: 5, width: 280, maxWidth: "100%", boxShadow: "lg" }}>
+    <Card sx={{ marginTop: 5, width: 250, maxWidth: "100%", boxShadow: "lg" }}>
       <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}>
           <img
