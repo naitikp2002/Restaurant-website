@@ -14,7 +14,7 @@ function Menu() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  },[]);
 
   const fetchData = async () => {
     const response = await fetch(
