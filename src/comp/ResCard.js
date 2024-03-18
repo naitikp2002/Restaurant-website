@@ -8,8 +8,9 @@ import Chip from "@mui/joy/Chip";
 import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-
+import { useNavigate } from "react-router";
 export default function ProductCard({ ResData }) {
+  const navigate = useNavigate();
   const {
     id,
     name,
@@ -21,7 +22,9 @@ export default function ProductCard({ ResData }) {
     cuisines,
   } = ResData.info;
   return (
-    <Card sx={{ marginTop: 5, width: 250, maxWidth: "100%", boxShadow: "lg" }}>
+    <Card onClick={()=>{
+      navigate(`${id}`)
+    }} sx={{ marginTop: 5, width: 250, maxWidth: "100%", boxShadow: "lg" }}>
       <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}>
           <img

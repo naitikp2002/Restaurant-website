@@ -7,11 +7,11 @@ import ProductCard from "./ResCard";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import { indigo } from "@mui/material/colors";
-
+import { useNavigate } from "react-router";
 function Menu() {
   const [ListOfRestaurants, setListOfRestaurants] = useState(ResData);
   const [Restaurants, setRestaurants] = useState([]);
-
+  
   useEffect(() => {
     fetchData();
   },[]);

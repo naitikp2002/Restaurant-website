@@ -8,7 +8,7 @@ import Home from "./comp/Home";
 import About from "./comp/About";
 import Contact from "./comp/Contact";
 import Error from "./comp/Error";
-
+import RestaurantDetails from "./comp/RestaurantDetails";
 const AppLayout = () => {
   return (
     <React.StrictMode>
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
         path: "/Contact",
         element: <Contact />,
       },
+      {
+        path: "/Menu/:resId",
+        element: <RestaurantDetails />,
+      }
     ],
     errorElement: <Error/>
   },
