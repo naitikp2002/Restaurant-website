@@ -16,7 +16,7 @@ export default function RestaurantMenu() {
     );
     const data = await response.json();
     setRestaurantDetails(
-      data.data?.cards[0]?.card.card.info
+      data.data?.cards[2]?.card.card.info
     );
   };
   console.log(RestaurantDetails);
