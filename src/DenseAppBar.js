@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import './App.css';
+import PaperComponent from './comp/CartModel';
 const pages = ['Home', 'Menu','About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -58,8 +59,9 @@ const ResponsiveAppBar = () => {
           >
             LOGO
           </Typography>
-
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -99,6 +101,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
+          
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -131,7 +134,7 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-
+          <PaperComponent/>
           <Box color={"black"}  sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

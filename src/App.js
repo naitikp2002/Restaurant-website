@@ -6,6 +6,7 @@ import Home from "./comp/Home";
 import Contact from "./comp/Contact";
 import Menu from "./comp/Menu";
 import About from "./comp/About";
+import '@fontsource/roboto/300.css';
 function App() {
   return (
     <>
