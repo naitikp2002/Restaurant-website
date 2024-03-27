@@ -15,10 +15,17 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import './App.css';
 import PaperComponent from './comp/CartModel';
+import { useContext } from 'react';
+import CartContext from './store/item-context';
+
 const pages = ['Home', 'Menu','About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
+  const cartcntx= useContext(CartContext);
+  const numberOfCartItems = cartcntx.items.reduce((acc, item) =>{
+    return (acc + item.defaultPrice)
+  },0)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -134,7 +141,7 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-          <PaperComponent/>
+          <PaperComponent numberOfCartItems={numberOfCartItems}/>
           <Box color={"black"}  sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

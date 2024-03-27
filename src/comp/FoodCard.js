@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 
 export default function MediaControlCard(props) {
   const theme = useTheme();
- const {name, description, imageId, defaultPrice, price}= props.props;
+ const {id, name, description, imageId, defaultPrice, price}= props.props;
  console.log(props.props)
   return (
     <Card sx={{ display: 'flex', margin:"1rem", maxWidth:"40rem",justifyContent: "space-between"}}>

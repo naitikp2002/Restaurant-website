@@ -19,7 +19,7 @@ function PaperComponent(props) {
   );
 }
 
-export default function DraggableDialog() {
+export default function DraggableDialog({numberOfCartItems}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -33,7 +33,7 @@ export default function DraggableDialog() {
   return (
     <React.Fragment>
       <Button  variant="outlined" style={{color:"white", borderColor:'white', marginInline: '2rem'}} onClick={handleClickOpen}>
-        cart
+        cart ({numberOfCartItems})
       </Button>
       <Dialog
         open={open}

@@ -91,7 +91,7 @@ export default function ProductCard({ ResData }) {
       </CardContent>
       <CardOverflow>
         <Button variant="solid" color="danger" size="lg">
-          Add to cart
+          Click for Menu
         </Button>
       </CardOverflow>
     </Card>
