@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Animation from './Skeleton';
 import { useParams } from 'react-router';
-import MediaControlCard from './FoodCard';
+import MediaControlCard from './FoodCart';
 export default function RestaurantMenu() {
     const { resId } = useParams();
   const [RestaurantDetails, setRestaurantDetails] = useState(null);
