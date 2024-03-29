@@ -7,9 +7,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import MediaControlCard from './FoodCart';
 
-export default function AccordionUsage({categoryName,RestaurantDetails}) {
+export default function AccordionUsage({categoryName,RestaurantDetails, index}) {
   return (
-      <Accordion sx={{width:"80rem", marginTop:"1rem", marginBottom:"1rem"}} >
+      <Accordion defaultExpanded={index === 1} sx={{width:"80rem", marginTop:"1rem", marginBottom:"1rem"}} >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"

@@ -9,16 +9,39 @@ import Button from "@mui/material/Button";
 import { indigo } from "@mui/material/colors";
 import { useNavigate } from "react-router";
 function Menu() {
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
   const [ListOfRestaurants, setListOfRestaurants] = useState(ResData);
   const [Restaurants, setRestaurants] = useState([]);
   
-  useEffect(() => {
-    fetchData();
-  },[]);
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  };
 
+  // Fetch menu data when latitude and longitude are available
+  useEffect(() => {
+    if (latitude !== null && longitude !== null) {
+      fetchData();
+    }
+  }, [latitude, longitude]);
+  useEffect(() => {
+    getUserLocation();
+  }, []);
   const fetchData = async () => {
     const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1947611&lng=72.78624099999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
     );
     const data = await response.json();
     setListOfRestaurants(
