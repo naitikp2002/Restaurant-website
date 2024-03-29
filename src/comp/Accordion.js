@@ -15,7 +15,7 @@ export default function AccordionUsage({categoryName,RestaurantDetails}) {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-         {categoryName}
+         {categoryName} ({RestaurantDetails.length})
         </AccordionSummary>
         <AccordionDetails>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr"}}>

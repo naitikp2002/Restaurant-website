@@ -18,7 +18,7 @@ export default function RestaurantMenu() {
     );
     const data = await response.json();
     setRestaurantDetails(
-      data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR
+      data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards
     );
   };
   console.log(RestaurantDetails);
@@ -37,7 +37,7 @@ export default function RestaurantMenu() {
           alignItems: "center",
         }}
       >
-        {RestaurantDetails.cards.map((item) => {
+        {RestaurantDetails.map((item) => {
           return item.card.card.hasOwnProperty("itemCards") ? (
             <AccordionUsage
               RestaurantDetails={item.card?.card?.itemCards}
