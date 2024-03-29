@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Animation from "./Skeleton";
 import { useParams } from "react-router";
-import MediaControlCard from "./FoodCart";
 import AccordionUsage from "./Accordion";
 export default function RestaurantMenu() {
   const { resId } = useParams();
@@ -18,11 +17,11 @@ export default function RestaurantMenu() {
           setLongitude(position.coords.longitude);
         },
         (error) => {
-          console.error('Error getting user location:', error);
+          console.error("Error getting user location:", error);
         }
       );
     } else {
-      console.error('Geolocation is not supported by this browser.');
+      console.error("Geolocation is not supported by this browser.");
     }
   };
 
@@ -57,14 +56,15 @@ export default function RestaurantMenu() {
     <>
       <div
         style={{
-          marginTop:"2rem",
+          marginTop: "2rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        {RestaurantDetails.map((item, index,key) => {
+        {RestaurantDetails.map((item, index) => {
+          console.log(index);
           return item.card.card.hasOwnProperty("itemCards") ? (
             <AccordionUsage
               key={item.card.card.title}
@@ -79,11 +79,4 @@ export default function RestaurantMenu() {
       </div>
     </>
   );
-}
-{
-  /* <>
-(item.card.card.hasOwnProperty('itemCards'))?
-  <AccordionUsage RestaurantDetails={item.card?.card?.itemCards} categoryName={item.card.card.title} />
-:<></>
-</> */
 }

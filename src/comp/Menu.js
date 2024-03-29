@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
-import { Data } from "./data";
 import { ResData } from "./ResData";
 import "../App.css";
-import ActionAreaCard from "./Mcard";
 import ProductCard from "./ResCard";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { indigo } from "@mui/material/colors";
-import { useNavigate } from "react-router";
 function Menu() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
