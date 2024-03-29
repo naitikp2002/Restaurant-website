@@ -1,15 +1,16 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import Animation from './Skeleton';
-import { useParams } from 'react-router';
-import MediaControlCard from './FoodCart';
+import React from "react";
+import { useState, useEffect } from "react";
+import Animation from "./Skeleton";
+import { useParams } from "react-router";
+import MediaControlCard from "./FoodCart";
+import AccordionUsage from "./Accordion";
 export default function RestaurantMenu() {
-    const { resId } = useParams();
+  const { resId } = useParams();
   const [RestaurantDetails, setRestaurantDetails] = useState(null);
 
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
 
   const fetchData = async () => {
     const response = await fetch(
@@ -17,21 +18,43 @@ export default function RestaurantMenu() {
     );
     const data = await response.json();
     setRestaurantDetails(
-      data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card.itemCards
+      data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR
     );
   };
   console.log(RestaurantDetails);
 
-  if(RestaurantDetails=== null){
-    return (<Animation/>);
+  if (RestaurantDetails === null) {
+    return <Animation />;
   }
+  // RestaurantDetails.cards.map((item) => console.log());
   return (
     <>
-    <div style={{display:"grid", gridTemplateColumns:"1fr 1fr"}}>
-        {RestaurantDetails.map((item) => (
-          <MediaControlCard key={item.card.id} props={item.card.info}/>
-        ))}
-    </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {RestaurantDetails.cards.map((item) => {
+          return item.card.card.hasOwnProperty("itemCards") ? (
+            <AccordionUsage
+              RestaurantDetails={item.card?.card?.itemCards}
+              categoryName={item.card.card.title}
+            />
+          ) : (
+            <></>
+          );
+        })}
+      </div>
     </>
-  )
+  );
+}
+{
+  /* <>
+(item.card.card.hasOwnProperty('itemCards'))?
+  <AccordionUsage RestaurantDetails={item.card?.card?.itemCards} categoryName={item.card.card.title} />
+:<></>
+</> */
 }

@@ -15,7 +15,7 @@ export default function MediaControlCard(props) {
     <Card sx={{ display: 'flex', margin:"1rem", maxWidth:"40rem",justifyContent: "space-between"}}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
+          <Typography component="div" variant="h6">
             {name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
@@ -29,7 +29,7 @@ export default function MediaControlCard(props) {
       </Box>
       {imageId && <CardMedia
         component="img"
-        sx={{ maxWidth: 200, maxHeight: 200 , objectFit: "cover"}}
+        sx={{ maxWidth: 190, maxHeight: 190 , objectFit: "cover"}}
         image={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`}
         alt="Live from space album cover"
       />}
