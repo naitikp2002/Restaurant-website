@@ -1,9 +1,6 @@
 import react from 'react';
 
-const CartContext = react.createContext({
-    items: [],
-    totalAmount: 0,
-    addItem: (item)=>{},
-    removeItem: (id)=>{},
+const UserContext = react.createContext({
+    loggedinUser: 'user',
 })
-export default CartContext;
+export default UserContext;

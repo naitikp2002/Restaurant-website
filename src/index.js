@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -9,12 +9,18 @@ import About from "./comp/About";
 import Contact from "./comp/Contact";
 import Error from "./comp/Error";
 import RestaurantDetails from "./comp/RestaurantDetails";
+import UserContext from "./store/item-context";
+import { useContext } from "react";
+
 const AppLayout = () => {
+  const [userInfo, setUserInfo]= useState("Naitik");
   return (
-    <React.StrictMode>
+    <UserContext.Provider value={{loggedinUser:userInfo, setName:setUserInfo}}>
+    {/* <React.StrictMode> */}
       <ResponsiveAppBar />
       <Outlet />
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
+    </UserContext.Provider> 
   );
 };
 
