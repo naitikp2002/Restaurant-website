@@ -6,9 +6,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
 
 export default function MediaControlCard(props) {
-  const theme = useTheme();
+  const dispatch = useDispatch();
+  const handleClikCart=(item)=>{
+    dispatch(addToCart(item));
+  }
  const {id, name, description, imageId, defaultPrice, price}= props.props;
 //  console.log(props.props)
   return (
@@ -24,7 +29,7 @@ export default function MediaControlCard(props) {
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
         <b><Typography sx={{ textDecorationStyle: "solid"}} m={2}>₹ {price/100 || defaultPrice/100}</Typography></b>
-        <Button variant="outlined">Add to cart</Button>
+        <Button variant="outlined" onClick={()=>handleClikCart(props.props)}>Add to cart</Button>
         </Box>
       </Box>
       {imageId && <CardMedia

@@ -17,12 +17,15 @@ import './App.css';
 import PaperComponent from './comp/CartModel';
 import { useContext } from 'react';
 import UserContext from './store/item-context';
+import { useSelector } from 'react-redux';
 
 const pages = ['Home', 'Menu','About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const {loggedinUser}= useContext(UserContext);
+  const cartItems = useSelector((store)=> store.cart.items)
+  console.log(cartItems)
   // const numberOfCartItems = cartcntx.items.reduce((acc, item) =>{
   //   return (acc + item.defaultPrice)
   // },0)
@@ -142,7 +145,7 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
           <Typography>{loggedinUser}</Typography>
-          <PaperComponent numberOfCartItems={0}/>
+          <PaperComponent numberOfCartItems={cartItems.length}/>
           <Box color={"black"}  sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

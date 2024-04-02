@@ -53,7 +53,6 @@ export default function RestaurantMenu() {
   }
   // RestaurantDetails.cards.map((item) => console.log());
   return (
-    <>
       <div
         style={{
           marginTop: "2rem",
@@ -63,11 +62,11 @@ export default function RestaurantMenu() {
           alignItems: "center",
         }}
       >
-        {RestaurantDetails.map((item, index) => {
-          console.log(index);
+        {RestaurantDetails.map((item, index, key) => {
+          // console.log(index);
           return item.card.card.hasOwnProperty("itemCards") ? (
             <AccordionUsage
-              key={item.card.card.title}
+              key={index}
               RestaurantDetails={item.card?.card?.itemCards}
               categoryName={item.card.card.title}
               index={index}
@@ -77,6 +76,5 @@ export default function RestaurantMenu() {
           );
         })}
       </div>
-    </>
   );
 }

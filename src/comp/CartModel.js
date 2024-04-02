@@ -7,7 +7,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
-
+import { useDispatch, useSelector } from 'react-redux';
+import MediaControlCard from './FoodCart';
+import { UseDispatch } from 'react-redux';
+import { clearCart } from '../store/cartSlice';
 function PaperComponent(props) {
   return (
     <Draggable
@@ -20,6 +23,9 @@ function PaperComponent(props) {
 }
 
 export default function DraggableDialog({numberOfCartItems}) {
+  const dispatch= useDispatch();
+const cartItems = useSelector((store)=> store.cart.items)
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -29,7 +35,11 @@ export default function DraggableDialog({numberOfCartItems}) {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleClear=()=>{
+    setOpen(false);
+    dispatch(clearCart())
 
+  };
   return (
     <React.Fragment>
       <Button  variant="outlined" style={{color:"white", borderColor:'white', marginInline: '2rem'}} onClick={handleClickOpen}>
@@ -42,19 +52,18 @@ export default function DraggableDialog({numberOfCartItems}) {
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Subscribe
+          Cart
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
-          </DialogContentText>
-        </DialogContent>
+        <div style={{overflowY:"scroll"}}>
+        {cartItems.map((item, index)=>{
+          return <MediaControlCard props={item}/>
+        })}
+        </div>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClear}>Clear</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

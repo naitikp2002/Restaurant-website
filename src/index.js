@@ -11,16 +11,19 @@ import Error from "./comp/Error";
 import RestaurantDetails from "./comp/RestaurantDetails";
 import UserContext from "./store/item-context";
 import { useContext } from "react";
-
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
 const AppLayout = () => {
   const [userInfo, setUserInfo]= useState("Naitik");
   return (
+    <Provider Provider store={appStore}>
     <UserContext.Provider value={{loggedinUser:userInfo, setName:setUserInfo}}>
     {/* <React.StrictMode> */}
       <ResponsiveAppBar />
       <Outlet />
     {/* </React.StrictMode> */}
     </UserContext.Provider> 
+    </Provider>
   );
 };
 
