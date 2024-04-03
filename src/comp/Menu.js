@@ -36,6 +36,7 @@ function Menu() {
     getUserLocation();
   }, []);
   const fetchData = async () => {
+
     const response = await fetch(
       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
     );

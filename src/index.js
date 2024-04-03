@@ -16,7 +16,7 @@ import appStore from "./store/appStore";
 const AppLayout = () => {
   const [userInfo, setUserInfo]= useState("Naitik");
   return (
-    <Provider Provider store={appStore}>
+    <Provider store={appStore}>
     <UserContext.Provider value={{loggedinUser:userInfo, setName:setUserInfo}}>
     {/* <React.StrictMode> */}
       <ResponsiveAppBar />

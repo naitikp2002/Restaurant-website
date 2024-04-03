@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import MediaControlCard from './FoodCart';
 import { UseDispatch } from 'react-redux';
 import { clearCart } from '../store/cartSlice';
+import { Typography } from '@mui/material';
 function PaperComponent(props) {
   return (
     <Draggable
@@ -55,9 +56,9 @@ const cartItems = useSelector((store)=> store.cart.items)
           Cart
         </DialogTitle>
         <div style={{overflowY:"scroll"}}>
-        {cartItems.map((item, index)=>{
+        {cartItems.length!==0 ? cartItems.map((item, index)=>{
           return <MediaControlCard props={item}/>
-        })}
+        }): <Typography sx={{margin: 2}}>Your cart is empty</Typography>}
         </div>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
