@@ -11,10 +11,12 @@ export default function AccordionUsage({
   categoryName,
   RestaurantDetails,
   index,
+  accInd
 }) {
+  console.log(accInd);
   return (
     <Accordion
-      defaultExpanded={index === 1}
+      defaultExpanded={index === accInd}
       sx={{ width: "80rem", marginTop: "1rem", marginBottom: "1rem" }}
     >
       <AccordionSummary

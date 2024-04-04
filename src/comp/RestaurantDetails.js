@@ -47,6 +47,14 @@ export default function RestaurantMenu() {
     );
   };
   console.log(RestaurantDetails);
+  const accInd = ()=>{
+    for (let i = 0; i < RestaurantDetails.length; i++) {
+      if (RestaurantDetails[i].card.card.itemCards) {
+        return i;
+      }
+    } // If no element with itemCards property found
+  }; 
+
 
   if (RestaurantDetails === null) {
     return <Animation />;
@@ -70,6 +78,7 @@ export default function RestaurantMenu() {
               RestaurantDetails={item.card?.card?.itemCards}
               categoryName={item.card.card.title}
               index={index}
+              accInd={accInd()}
             />
           ) : (
             <></>

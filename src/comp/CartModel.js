@@ -29,7 +29,7 @@ export default function DraggableDialog({ numberOfCartItems }) {
   const cartItems = useSelector((store) => store.cart.items);
   const totalAmount = useSelector((store) => store.cart.totalPrice);
 
-  console.log(cartItems);
+  // console.log(cartItems);
   const countItems = () => {
     return cartItems.reduce((counts, item) => {
       counts[item.id] = (counts[item.id] || 0) + 1;
