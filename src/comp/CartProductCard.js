@@ -32,9 +32,7 @@ export default function CartproductCard(props) {
           <Typography component="div" variant="h6">
             {name}
           </Typography>
-          {/* <Typography variant="subtitle1" color="text.secondary" component="div">
-            {description}
-          </Typography> */}
+
         </CardContent>
         <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
           <b>
