@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MediaControlCard from "./FoodCart";
 import { UseDispatch } from "react-redux";
 import { clearCart } from "../store/cartSlice";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CartproductCard from "./CartProductCard";
 function PaperComponent(props) {
   return (
@@ -27,6 +27,8 @@ function PaperComponent(props) {
 export default function DraggableDialog({ numberOfCartItems }) {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
+  const totalAmount = useSelector((store) => store.cart.totalPrice);
+
   console.log(cartItems);
   const countItems = () => {
     return cartItems.reduce((counts, item) => {
@@ -66,13 +68,6 @@ export default function DraggableDialog({ numberOfCartItems }) {
           Cart
         </DialogTitle>
         <div style={{ overflowY: "scroll" }}>
-          {/* {cartItems.length !== 0 ? (
-            cartItems.map((item, index) => {
-              return <CartproductCard props={item} />;
-            })
-          ) : (
-            <Typography sx={{ margin: 2 }}>Your cart is empty</Typography>
-          )} */}
           {cartItems.length !== 0 ? (
             Object.entries(countItems()).map(([itemId, count]) => {
               const item = cartItems.find((item) => item.id === itemId);
@@ -82,6 +77,11 @@ export default function DraggableDialog({ numberOfCartItems }) {
             <Typography sx={{ margin: 2 }}>Your cart is empty</Typography>
           )}
         </div>
+        {cartItems.length !== 0 && <Box sx={{ padding: 2 }}>
+          <Typography variant="h6" gutterBottom>
+            Total Amount: ₹{totalAmount}/-
+          </Typography>
+        </Box>}
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
             Cancel
